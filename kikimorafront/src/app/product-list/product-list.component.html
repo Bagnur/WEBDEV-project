@@ -1,0 +1,25 @@
+<h2 align="center" style="color:rgb(176, 195, 214);font-size: 200%; font-family: serif;">Watches</h2>
+
+<div *ngFor="let product of products" class="prods">
+    <h3 align="center" style="font-family: serif; margin-bottom: 5%;">
+        <a [title]=" product.name + ' details' " [routerLink]="[ '/product-item', product.id] ">
+      {{ product.name }}
+    </a>
+    </h3>
+
+    <p align="center " *ngIf="product.description " style="color:rgb(214, 214, 214);font-family: serif; ">Description: {{ product.description }}</p>
+    <!-- <img [src]="product.photo "> -->
+    <img style="width:200px; height:300px; margin-top:60px; display: block;margin: 0 auto; " [src]="product.photo " />
+    <div class="buts ">
+        <share-buttons theme="modern-dark " [include]="[ 'telegram'] " [showIcon]="true " [showText]="true " [url]="product.link " [description]="product.name " twitterAccount="rodrigokamada " class="pt-5 ">
+        </share-buttons>
+    </div>
+
+    <app-product-alerts [product]="product " (notify)="onNotify() ">
+    </app-product-alerts>
+</div>
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

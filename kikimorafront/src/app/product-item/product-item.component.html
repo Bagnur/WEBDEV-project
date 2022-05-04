@@ -1,0 +1,19 @@
+<h2>Decription</h2>
+
+<div *ngIf="product">
+    <button class="button fancy-button " type="button" [routerLink]="['/categories/', product.categoryid]">Back</button>
+    <h3>{{ product.name }}</h3>
+    <h4>{{ product.price | currency }}</h4>
+    <h4>Rating: {{ product.rating }} / 5</h4>
+    <p>{{ product.description }}</p>
+    <p>Likes - {{ product.likes }}</p>
+
+    <div class="productbuttons" style="justify-content: space-between;">
+        <share-buttons class="button fancy-button" style="justify-content: space-between;" theme=" modern-dark " [include]="[ 'telegram'] " [showIcon]="true " [showText]="true " [url]="product.link " [description]="product.name " twitterAccount="rodrigokamada
+            " class="pt-5 ">
+        </share-buttons>
+        <button class="button fancy-button " type="button " style="justify-content: space-between;" (click)="addToCart(product) ">Buy</button>
+        <button class="button fancy-button " type="button " style="justify-content: space-between;" (click)="like(product) ">Like</button>
+    </div>
+    <img [src]="product.photo " style="width:500px; display: block;margin: 0 auto; " />
+</div>

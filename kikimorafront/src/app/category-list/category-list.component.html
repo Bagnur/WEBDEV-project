@@ -1,0 +1,20 @@
+<h2 style="font-size: 200%; font-family: monospace; color: #a766cd; text-align: center;">Watch brands</h2>
+<input type="text" id="name" style='margin-right: 10px'>
+<button type="button" (click)="post()">
+  Create
+</button>
+
+<div *ngFor="let category of categories">
+    <h3>
+        <a [title]="category.name + ' details' " [routerLink]="[ '/categories', category.id] " style="font-size: 120%; font-family: monospace; color: rgb(165, 214, 230); ">
+      {{ category.name }}
+    </a>
+        <input [title]="category.name + ' details' " type="text " [id]="category.name + 'new_name' " value={{category.name}} style='margin-right: 10px'>
+        <button [title]="category.name + ' details' " type="button " (click)="update(category) " style='margin-right: 10px'>
+    Update
+    </button>
+        <button type="button " (click)="delete(category) ">
+      Delete
+    </button>
+    </h3>
+</div>
